@@ -1,4 +1,3 @@
-
 #include <iostream>
 using namespace std;
 
@@ -12,7 +11,7 @@ void buscarElemento();
 //--------------------------
 
 
-const int MAX = 2;;
+const int MAX = 8;
 int lista[MAX]{};
 int nElementos = 0;
 
@@ -32,8 +31,8 @@ void menu()
 		cout << "1 - Inicializar Lista \n";
 		cout << "2 - Exibir quantidade de elementos \n";
 		cout << "3 - Exibir elementos \n";
-		cout << "4 - Buscar elemento \n";
-		cout << "5 - Inserir elemento \n";
+		cout << "4 - Inserir elemento \n";
+		cout << "5 - Buscar elemento \n";
 		cout << "6 - Sair \n\n";
 
 		cout << "Opcao: ";
@@ -47,9 +46,9 @@ void menu()
 			break;
 		case 3: exibirElementos();
 			break;
-		case 4: buscarElemento();
+		case 4: inserirElemento();
 			break;
-		case 5: inserirElemento();
+		case 5: buscarElemento();
 			break;
 		case 6:
 			return;
@@ -65,7 +64,6 @@ void inicializar()
 {
 	nElementos = 0;
 	cout << "Lista inicializada \n";
-
 }
 
 void exibirQuantidadeElementos() {
@@ -98,11 +96,20 @@ void inserirElemento()
 	else {
 		cout << "Lista cheia";
 	}
-
 }
 
-// deve ser implementada como resposta ao exercicio
 void buscarElemento()
 {
-
+	int busca, x = 0;
+	cout << "Qual elemento deseja procurar na lista?" << endl;
+	cin >> busca;
+	for (int n = 0; n < nElementos; n++) {
+		if (busca == lista[n]) {
+			cout << "O elemento esta na posicao " << n << " da lista" << endl;
+			x++;
+		}
+	}
+	if (x == 0) {
+		cout << "O elemento nao faz parte da lista\n";
+	}
 }
